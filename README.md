@@ -1,8 +1,11 @@
 # Hyperemu
 
-**HYPER Company** tərəfindən hazırlanmış ultra optimizasiya olunmuş emulyator.
+Advanced PC Emulation Platform by **HYPER Company**.
 
 ![Logo](logo.png)
 
-## Quraşdırılma
-1. Tezliklə Releases bölməsindən APK-nı endirə biləcəksiniz.
+## Description
+Hyperemu is an ultra-optimized Android application that allows you to run Windows (x86_64) applications using Wine and Box86/Box64.
+
+## Installation
+1. Download the latest APK from the Releases section (coming soon).
