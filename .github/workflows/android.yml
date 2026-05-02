@@ -1,10 +1,8 @@
 name: Android Build & Release
-
 on:
   push:
     branches: [ main ]
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,29 +10,22 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-
       - name: set up JDK 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build with Gradle
+      - name: Grant permissions
+        run: chmod +x gradlew || true
+      - name: Build APK
         run: ./gradlew assembleDebug
-
-      - name: Create Release
+      - name: Upload to Release
         uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main'
         with:
-          tag_name: v1.0.0
-          name: "Hyperemu v1.0.0 Official Release"
-          body: "Hyperemu APK is ready! Build by HYPER Company."
-          draft: false
-          prerelease: false
-          files: app/build/outputs/apk/debug/*.apk
+          tag_name: "v1.0.${{ github.run_number }}"
+          name: "Hyperemu v1.0.${{ github.run_number }}"
+          files: "app/build/outputs/apk/debug/*.apk"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
