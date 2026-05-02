@@ -1,4 +1,7 @@
-plugins { id 'com.android.application' }
+plugins {
+    id 'com.android.application'
+}
+
 android {
     namespace 'com.hyper.emu'
     compileSdk 34
@@ -7,6 +10,19 @@ android {
         minSdk 21
         targetSdk 34
         versionCode 1
-        versionName "1.0"
+        versionName "1.0-Winlator-Base"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    // Sənin əlavə etdiyin source code-ları bura bağlayırıq
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/']
+            res.srcDirs = ['src/main/res']
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
     }
 }
