@@ -5,6 +5,7 @@ plugins {
 android {
     namespace 'com.hyper.emu'
     compileSdk 34
+    
     defaultConfig {
         applicationId "com.hyper.emu"
         minSdk 21
@@ -12,15 +13,11 @@ android {
         versionCode 1
         versionName "1.0-Winlator-Base"
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-        }
-    }
-    // Sənin əlavə etdiyin source code-ları bura bağlayırıq
+
     sourceSets {
         main {
-            java.srcDirs = ['src/main/java', 'src/main/']
+            // GitHub-a deyirik ki, kodları bu qovluqlarda axtar
+            java.srcDirs = ['src/main/java', 'src/main/cpp']
             res.srcDirs = ['src/main/res']
             manifest.srcFile 'src/main/AndroidManifest.xml'
         }
