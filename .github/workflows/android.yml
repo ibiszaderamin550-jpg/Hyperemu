@@ -16,16 +16,25 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: gradle
-      - name: Grant permissions
-        run: chmod +x gradlew || true
+      - name: Find and Fix Gradlew
+        run: |
+          GRADLEW_PATH=$(find . -name "gradlew" | head -n 1)
+          if [ -n "$GRADLEW_PATH" ]; then
+            cp "$GRADLEW_PATH" ./gradlew
+            chmod +x ./gradlew
+          else
+            echo "Gradlew not found! Creating wrapper..."
+            gradle wrapper
+            chmod +x gradlew
+          fi
       - name: Build APK
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main'
         with:
           tag_name: "v1.0.${{ github.run_number }}"
-          name: "Hyperemu v1.0.${{ github.run_number }}"
-          files: "app/build/outputs/apk/debug/*.apk"
+          name: "Hyperemu Release v1.0.${{ github.run_number }}"
+          files: "**/*.apk"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
