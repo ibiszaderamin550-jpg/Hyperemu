@@ -23,7 +23,7 @@ public class XConnectorEpoll implements Runnable {
     private final SparseArray<Client> connectedClients = new SparseArray<>();
 
     static {
-        System.loadLibrary("hyperemu");
+        System.loadLibrary("winlator");
     }
 
     public XConnectorEpoll(UnixSocketConfig socketConfig, ConnectionHandler connectionHandler, RequestHandler requestHandler) {

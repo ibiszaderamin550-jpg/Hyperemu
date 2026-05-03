@@ -183,9 +183,9 @@ public class LogView extends View {
     }
 
     private static File getLogFile() {
-        File hyperEmuDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "HyperEmu");
-        hyperEmuDir.mkdirs();
-        return new File(hyperEmuDir, "logs.txt");
+        File winlatorDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "Winlator");
+        winlatorDir.mkdirs();
+        return new File(winlatorDir, "logs.txt");
     }
 
     public void exportToFile() {

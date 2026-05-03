@@ -29,7 +29,6 @@ import com.google.android.material.navigation.NavigationView;
 import com.hyperemu.contentdialog.ContentDialog;
 import com.hyperemu.core.Callback;
 import com.hyperemu.core.PreloaderDialog;
-import com.hyperemu.store.StoreFragment;
 import com.hyperemu.xenvironment.ImageFsInstaller;
 
 import java.util.List;
@@ -162,8 +161,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.main_menu_settings:
                 show(new SettingsFragment());
                 break;
-            case R.id.main_menu_store:
-                show(new StoreFragment());
+            case R.id.main_menu_steam:
+                startActivity(new android.content.Intent(this, SteamLoginActivity.class));
+                break;
+            case R.id.main_menu_epic:
+                startActivity(new android.content.Intent(this, EpicLoginActivity.class));
                 break;
             case R.id.main_menu_about:
                 showAboutDialog();
@@ -189,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             final PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
 
             TextView tvWebpage = dialog.findViewById(R.id.TVWebpage);
-            tvWebpage.setText(Html.fromHtml("<a href=\"https://www.hyperemu.app\">hyperemu.app</a>", Html.FROM_HTML_MODE_LEGACY));
+            tvWebpage.setText(Html.fromHtml("<a href=\"https://www.winlator.org\">winlator.org</a>", Html.FROM_HTML_MODE_LEGACY));
             tvWebpage.setMovementMethod(LinkMovementMethod.getInstance());
 
             ((TextView)dialog.findViewById(R.id.TVAppVersion)).setText(getString(R.string.version)+" "+pInfo.versionName);

@@ -65,7 +65,7 @@ public class ImageFs {
     }
 
     public File getConfigDir() {
-        return new File(rootDir, ".hyperemu");
+        return new File(rootDir, ".winlator");
     }
 
     public File getImgVersionFile() {

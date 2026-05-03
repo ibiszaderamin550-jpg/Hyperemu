@@ -15,7 +15,7 @@ public class SysVSharedMemory {
     private int maxSHMemoryId = 0;
 
     static {
-        System.loadLibrary("hyperemu");
+        System.loadLibrary("winlator");
     }
 
     private static class SHMemory {

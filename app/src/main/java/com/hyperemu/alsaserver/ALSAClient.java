@@ -25,7 +25,7 @@ public class ALSAClient {
     private long streamPtr = 0;
 
     static {
-        System.loadLibrary("hyperemu");
+        System.loadLibrary("winlator");
     }
 
     public void release() {

@@ -22,7 +22,7 @@ import com.hyperemu.xserver.XLock;
 import com.hyperemu.xserver.XServer;
 
 /*
-    HyperEmuXR implementation by lvonasek (https://github.com/lvonasek)
+    WinlatorXR implementation by lvonasek (https://github.com/lvonasek)
  */
 
 public class XrActivity extends XServerDisplayActivity implements TextWatcher {

@@ -11,7 +11,7 @@ public class ClientSocket {
     private final ArrayDeque<Integer> ancillaryFds = new ArrayDeque<>();
 
     static {
-        System.loadLibrary("hyperemu");
+        System.loadLibrary("winlator");
     }
 
     public ClientSocket(int fd) {

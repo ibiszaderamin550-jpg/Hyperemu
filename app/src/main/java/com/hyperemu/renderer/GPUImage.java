@@ -16,7 +16,7 @@ public class GPUImage extends Texture {
     private static boolean supported = false;
 
     static {
-        System.loadLibrary("hyperemu");
+        System.loadLibrary("winlator");
     }
 
     public GPUImage(short width, short height) {

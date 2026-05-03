@@ -21,7 +21,7 @@ public class Drawable extends XResource {
     public final Object renderLock = new Object();
 
     static {
-        System.loadLibrary("hyperemu");
+        System.loadLibrary("winlator");
     }
 
     public Drawable(int id, int width, int height, Visual visual) {
