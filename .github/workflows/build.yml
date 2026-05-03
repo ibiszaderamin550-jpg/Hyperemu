@@ -12,21 +12,24 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
-      - uses: actions/setup-java@v4
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
-        with:
-          gradle-version: "8.2"
-      - name: Install NDK
-        run: |
-          echo "y" | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;25.1.8937393"
+
       - name: Build APK
-        run: chmod +x gradlew && ./gradlew assembleDebug --warning-mode none
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace --info
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: HyperEmu-APK
+          name: HyperEmu-Debug
           path: app/build/outputs/apk/debug/*.apk
+
